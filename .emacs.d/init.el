@@ -20,23 +20,22 @@
 (require 'defuns)
 
 ;; iPython does not work on sun machines
-(setq use-python t)
+(setq use-ipython t)
 
 ;; Linux-specific files (i.e. Aquamacs provides many libraries)
-(if (system-type-is-gnu)
+(if (or (system-type-is-gnu) (system-type-is-sun))
     (progn
       (add-to-list 'load-path "~/elisp")
       (add-to-list 'load-path "~/elisp/color-theme")
       (require 'color-theme)
       (add-to-list 'load-path "~/elisp/python-mode.el-5.2.0")
 
+      ;; Don't do any ipython stuff on sun machines
       (if (string-match	"sun" (emacs-version))
 	  (setq use-ipython nil)
 	)
       )
   )
-
-
 
 (require 'bindings)
 (require 'appearance)
@@ -52,14 +51,11 @@
 
 ; Setting up ipython as preferred Python shell
 ; Note Aquamacs uses python-mode>
-;(if (use-ipython)
-;    (progn
-(when (eq use-python 't)
+(when (eq use-ipython 't)
       (setq ipython-command "ipython")
       (require 'ipython)
       (setq py-python-command-args '("-pylab" "-colors" "Linux"))
 )
-;))
 ;(setq ipython-completion-command-string 
 ;"print(';'.join(__IP.Completer.all_completions('%s')))\n")
 
@@ -102,7 +98,7 @@
 ; Note that anything-show-completion doesn't get bound to M-<tab> until an Ipython shell is launched
 ; We can manually bind it - but it won't work until IPython shell is running
 ; See usage: http://www.emacsmirror.org/package/anything-ipython.html
-(when (eq use-python 't)
+(when (eq use-ipython 't)
   (require 'anything-ipython)
   (add-hook 'python-mode-hook #'(lambda ()
 				  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
@@ -125,7 +121,7 @@
 
 ; This is the only way I could get the binding to work for the Ipython shell
 ; Use C-c <tab> since M-<tab> is taken by openbox
-(when (eq use-python 't)
+(when (eq use-ipython 't)
   (defun my-tab-fix ()
     (local-set-key (kbd "C-c <tab>") 'anything-ipython-complete))
   (add-hook 'python-mode-hook          'my-tab-fix)

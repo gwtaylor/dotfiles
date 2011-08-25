@@ -28,6 +28,13 @@
 (string-equal system-type "gnu/linux")
 )
 
+;; The CIMS sun systems report system-type as usg-unix-v
+(defun system-type-is-sun ()
+(interactive)
+"Return true if system is GNU/Linux-based"
+(string-equal system-type "usg-unix-v")
+)
+
 ; Can increment a number at a given point, maintaining field sizes like 0034 -> 0035
 ; http://www.emacswiki.org/emacs/IncrementNumber
 (defun my-increment-number-decimal (&optional arg)
