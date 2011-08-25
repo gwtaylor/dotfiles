@@ -36,6 +36,7 @@ esac
 #See: http://ruslanspivak.com/2010/11/25/bash-history-incremental-search-forward/
 stty -ixon
 
+# Platform-specific statements
 if [ `uname -s` == 'Darwin' ] && [ -f ${DOTFILES_DIR}/.bashrc.Darwin ]; then
     . ${DOTFILES_DIR}/.bashrc.Darwin
 fi
@@ -44,3 +45,7 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  && [ -f ${DOTFILES_D
     . ${DOTFILES_DIR}/.bashrc.Linux
 fi
 
+# custom aliases
+if [ -f ${DOTFILES_DIR}/.bash_aliases ]; then
+    . ${DOTFILES_DIR}/.bash_aliases
+fi
