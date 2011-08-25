@@ -1,0 +1,86 @@
+#!/bin/bash
+
+#check to see if we're on a greendotblade machine
+#and if so, set the path
+HOST=$(uname -n)
+if [[ $HOST == *greendotblade* ]]; then 
+    echo "GreenDot machine detected"
+    PATH=$HOME/bin:/opt/bin:${PATH}
+fi
+
+#set editor
+# runs a script that tries emacsclient then falls back to starting emacs
+export EDITOR=~/bin/EDITOR
+
+#the sun machines do not understand xterm-color
+#use a local terminfo
+#Copied from mac http://www.macosxhints.com/article.php?story=20040930002324870
+#echo TERM $TERM
+THIS_ARCH=`arch`
+if [ "sun4" = "$THIS_ARCH" ] && [ "xterm-color" = "$TERM" ]; then
+  echo Setting TERMINFO
+  export TERMINFO=$HOME/.terminfo
+fi
+THIS_ARCH=`arch`
+if [ "sun4" = "$THIS_ARCH" ] && [ "rxvt" = "$TERM" ]; then
+  echo Setting TERMINFO
+  export TERMINFO=$HOME/.terminfo
+fi
+
+#start keychain and point it to the private keys that we would like to cache
+/home/gwtaylor/bin/keychain ~/.ssh/id_rsa
+[[ -f $HOME/.keychain/$HOSTNAME-sh ]] && \
+    source $HOME/.keychain/$HOSTNAME-sh > /dev/null
+
+#default printer
+export PRINTER=nhp64
+
+# new opencv libraries to work with stip 2.0
+export LD_LIBRARY_PATH=/home/gwtaylor/bin/x86_64/OpenCV-2.2.0/lib:$LD_LIBRARY_PATH
+
+#MKL LIBRARIES
+[ -d /opt/intel/cce/10.0.023/lib ] && export LD_LIBRARY_PATH="/opt/intel/cce/10.0.023/lib:${LD_LIBRARY_PATH}"
+[ -d /opt/intel/cce/10.0.023/bin ] && export PATH="/opt/intel/cce/10.0.023/bin:${PATH}"
+export KMP_DUPLICATE_LIB_OK=TRUE #for Matlab/ipp_mt_conv2
+
+#set up CUDA libraries
+if [ -e /dev/nvidia0 ]; then
+    echo "GPU machine: using CUDA 3.2"
+    [ -d /usr/local/pkg/cuda/3.2/cuda/bin ] && export PATH=/usr/local/pkg/cuda/3.2/cuda/bin:$PATH
+    [ -d /usr/local/pkg/cuda/3.2/cuda/lib64 ] && export LD_LIBRARY_PATH=/usr/local/pkg/cuda/3.2/cuda/lib64:$LD_LIBRARY_PATH
+    [ -d /usr/local/pkg/cuda/3.2/cuda ] && export CUDA_INSTALL_PATH=/usr/local/pkg/cuda/3.2/cuda
+    [ -d $HOME/c/nvidia_sdk_3.2 ] && export CUDA_SDK_PATH=$HOME/c/nvidia_sdk_3.2
+fi
+
+# nice Python setup (don't do it on sun machines)
+THIS_ARCH=`arch`
+if [ "sun4" != "$THIS_ARCH" ] ; then
+. /home/gwtaylor/bin/pylab-03/bin/python_path_setup_sh
+fi
+
+#shared binaries
+#put at end of path, don't want old gs to shadow
+[ -d /home/snwiz/bin ] && export PATH=$PATH:/home/snwiz/bin
+
+# custom python binaries
+[ -d $HOME/bin/x86_64/python/bin ] && export PATH=$HOME/bin/x86_64/python/bin:${PATH}
+
+unset PYTHONPATH # CIMS default has old libraries
+
+#cudamat and gnumpy
+export PYTHONPATH=$HOME/python/gnumpy:$HOME/python/cudamat-gwt:${PYTHONPATH}
+
+#theano
+export PYTHONPATH=$HOME/python/Theano:${PYTHONPATH}
+
+#custom python modules
+export PYTHONPATH=$HOME/bin/x86_64/python/lib/python2.6/site-packages:${PYTHONPATH}
+
+#openCV python bindings
+export PYTHONPATH=$HOME/bin/x86_64/OpenCV-2.2.0/lib/python2.6/site-packages:${PYTHONPATH}
+
+#import cudamat in python must be able to find .so files
+export LD_LIBRARY_PATH=$HOME/python/cudamat:${LD_LIBRARY_PATH}
+
+#recent opencv
+export LD_LIBRARY_PATH=/usr/local/pkg/opencv/lib:${LD_LIBRARY_PATH}

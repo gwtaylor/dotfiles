@@ -1,0 +1,30 @@
+#!/bin/bash
+
+export EDITOR="emacs"
+
+#for MacPorts
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+
+#for CUDA
+export PATH=/usr/local/cuda/bin:$PATH
+export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
+
+#don't want to use tex in macports by default
+export PATH=/usr/texbin:${PATH}
+
+#project modules
+export PYTHONPATH=$HOME/python/SquidBall/tracker:$HOME/python/SquidBall/pantilt:${PYTHONPATH}
+
+#theano
+export PYTHONPATH=$HOME/src/Theano:${PYTHONPATH}
+
+#cudamat and gnumpy
+export PYTHONPATH=$HOME/python/gnumpy:$HOME/python/cudamat:${PYTHONPATH}
+
+export LIBRARY_PATH=/opt/local/lib:${LIBRARY_PATH}
+
+#import cudamat in python must be able to find .so files
+export LD_LIBRARY_PATH=$HOME/python/cudamat:${LD_LIBRARY_PATH}
+

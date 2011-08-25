@@ -4,9 +4,6 @@
 # Quick, no-windowing emacs
 alias em="emacs -nw"
 
-# rsync move
-alias rs="rsync --remove-sent-files -avzP"
-
 #for killing apps
 function psapp() {
     ps -ax | grep -i $1 | grep -i -v  "grep.-i.$1" | awk '{print $1}'
@@ -51,5 +48,7 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  ; then
 	    alias ssh="ssh -Y"  
 	fi
     fi
+
+    alias ipython="ipython -pylab"
 
 fi
