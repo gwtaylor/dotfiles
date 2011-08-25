@@ -15,15 +15,28 @@
                     (or (buffer-file-name) load-file-name)))
 
 (add-to-list 'load-path dotfiles-dir)
+(add-to-list 'load-path (concat dotfiles-dir "/vendor"))
 
-(require 'appearance)
 (require 'defuns)
+
+;; Linux-specific files (i.e. Aquamacs provides many libraries)
+(if (system-type-is-gnu)
+    (progn
+      (add-to-list 'load-path "~/elisp")
+      (add-to-list 'load-path "~/elisp/color-theme")
+      (require 'color-theme)
+      (add-to-list 'load-path "~/elisp/python-mode.el-5.2.0")
+      )
+  )
+
 (require 'bindings)
+(require 'appearance)
 
 ; Use older version of python-mode
 ; New version >= 6.0 doesn't seem to work with ipython.el
 ; So I placed 5.2.0 it in local folder ~/Library/Application\ Support/Emacs/site-lisp
 ; This is the last version that seems to work
+;(setq load-path (cons "~/elisp/python-mode.el-5.2.0" load-path))
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 (setq interpreter-mode-alist (cons '("python" . python-mode) interpreter-mode-alist))
 (autoload 'python-mode "python-mode" "Python editing mode." t)
@@ -110,8 +123,17 @@
   (highlight-lines-matching-regexp "pdb.set_trace()"))
 (add-hook 'python-mode-hook 'annotate-pdb)
 
+; Easy restoring of window configurations with C-c <left> and C-c <right>
+; http://www.emacswiki.org/emacs/WinnerMode
+; Recommended by: http://stackoverflow.com/questions/6963241/git-commits-in-emacs-without-changing-window-layout
+(when (fboundp 'winner-mode)
+  (winner-mode 1))
+
+;;display the current time
+(display-time)
+
 ;; This configuration is shared between OSX and Linux machines
-;; Test stystem type
+;; Test system type
 ;; http://sigquit.wordpress.com/tag/dot-emacs/
 ;; See function definitions in defuns.el
 
@@ -119,5 +141,10 @@
 (setq system-specific-config (concat dotfiles-dir (format "%s" system-type) ".el"))
 (if (file-exists-p system-specific-config) (load system-specific-config))
 
+(if (system-type-is-gnu)
+    (progn
+      (load "linux.el")
+      )
+  )
 
 (provide 'init)
