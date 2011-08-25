@@ -1,0 +1,3 @@
+[submodule ".emacs.d/vendor/rainbow-mode"]
+	path = .emacs.d/vendor/rainbow-mode
+	url = git://git.naquadah.org/rainbow.git
