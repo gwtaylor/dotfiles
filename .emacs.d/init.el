@@ -2,13 +2,11 @@
 ;; Inspired by emacs-starter-kit: https://github.com/technomancy/emacs-starter-kit
 ;; And aquamacs-emacs-starter-kit: https://github.com/walter/aquamacs-emacs-starter-kit
 
-
 ;; Turn off mouse interface early in startup to avoid momentary display
 ;; You really don't need these; trust me.
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
 
 ;; Load path etc.
 (setq dotfiles-dir (file-name-directory
@@ -31,14 +29,14 @@
       (add-to-list 'load-path "~/elisp/python-mode.el-5.2.0")
 
       ;; Don't do any ipython stuff on sun machines
-      (if (string-match	"sun" (emacs-version))
-	  (setq use-ipython nil)
-	)
+      ;; Earlier, I used: (if (string-match	"sun" (emacs-version))
+      (when (system-type-is-sun)
+	(setq use-ipython nil))
       )
   )
 
-(require 'bindings)
 (require 'appearance)
+(require 'bindings)
 
 ; Use older version of python-mode
 ; New version >= 6.0 doesn't seem to work with ipython.el
@@ -79,7 +77,6 @@
 (setq interpreter-mode-alist (cons '("cuda" . cuda-mode)
                                    interpreter-mode-alist))
 
-
 (require 'package)
 ;; Marmalade
 (add-to-list 'package-archives
@@ -89,7 +86,6 @@
 ;; (add-to-list 'package-archives<br />
 ;;              '("elpa" . "http://tromey.com/elpa/"))
 (package-initialize)
-
  
 (require 'anything-match-plugin)
 (require 'anything-config)
@@ -152,7 +148,7 @@
 (setq system-specific-config (concat dotfiles-dir (format "%s" system-type) ".el"))
 (if (file-exists-p system-specific-config) (load system-specific-config))
 
-(if (system-type-is-gnu)
+(if (or (system-type-is-gnu) (system-type-is-sun))
     (progn
       (load "linux.el")
       )

@@ -8,3 +8,12 @@ For Aquamacs, I have the following in ~/Library/Preferences/Aquamacs Emacs/Prefe
 ;; set up our various directories to load
 (add-to-list 'load-path kitfiles-dir)
 (require 'init)
+
+
+TODO
+
+-It's a little ugly that (require 'defuns) is necessary before the other (require 'x) but this is due to the system-based functions that need to do some conditionals for paths, etc
+Could break up into defuns-early,defuns-late
+-It's ugly that there's system conditionals at the beginning of init and at the end (i.e. in their own files)
+It would be nice to keep it totally separate in system-specific files, but some statements that are common to all platforms (like color-theme-initialize) require certain paths to be set before calling them
+-The conditionals for loading darwin.el and linux.el are of a different form; mainly because system-type could be "gnu/linux" and I don't want to deal with the slash in the name
