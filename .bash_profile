@@ -15,6 +15,9 @@ export SVN_BASE
 SVN_PUBLIC=svn+ssh://gwtaylor@cluster30.ais.sandbox/gobi1/gwtaylor/public/svnrepo
 export SVN_PUBLIC
 
+#Disable flow control so ctrl-s actually does forward search
+#See: http://ruslanspivak.com/2010/11/25/bash-history-incremental-search-forward/
+stty -ixon
 
 # Platform-specific statements
 if [ `uname -s` == 'Darwin' ] && [ -f ${DOTFILES_DIR}/.bash_profile.Darwin ]; then

@@ -32,10 +32,6 @@ case $TERM in
 esac
 
 
-#Disable flow control so ctrl-s actually does forward search
-#See: http://ruslanspivak.com/2010/11/25/bash-history-incremental-search-forward/
-stty -ixon
-
 # Platform-specific statements
 if [ `uname -s` == 'Darwin' ] && [ -f ${DOTFILES_DIR}/.bashrc.Darwin ]; then
     . ${DOTFILES_DIR}/.bashrc.Darwin
