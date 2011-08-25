@@ -1,0 +1,10 @@
+Emacs configuration; set up to run with both Aquamacs and GNU emacs on Linux
+For Aquamacs, I have the following in ~/Library/Preferences/Aquamacs Emacs/Preferences.el:
+
+;; Based on Aquamacs Emacs Starter Kit
+;; http://github.com/walter/aquamacs-emacs-starter-kit
+(setq kitfiles-dir "~/dotfiles/.emacs.d")
+
+;; set up our various directories to load
+(add-to-list 'load-path kitfiles-dir)
+(require 'init)
