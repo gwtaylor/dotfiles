@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "Darwin"
-
 # Enable colorized output on OS X
 alias ls='ls -G'
 alias la='ls -AG'
