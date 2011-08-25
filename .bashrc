@@ -1,5 +1,12 @@
 DOTFILES_DIR=~/dotfiles
 
+# Some statements (like path, etc) 
+# are run before we decide on interactivity
+# On CIMS machines, rsync is in /usr/local/bin which isn't seen if we use a non-interactive shell
+if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  && [ -f ${DOTFILES_DIR}/.bashrc.Linux.pre ]; then
+    . ${DOTFILES_DIR}/.bashrc.Linux.pre
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 

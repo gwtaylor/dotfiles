@@ -1,0 +1,11 @@
+echo "Linux bashrc pre"
+
+#
+# Get CIMS defaults
+#
+if [ -r /usr/local/lib/.system.bashrc ] ; then
+    . /usr/local/lib/.system.bashrc
+elif [ -r /etc/bashrc ] ; then
+    . /etc/bashrc
+fi
+
