@@ -19,6 +19,9 @@
 
 (require 'defuns)
 
+;; iPython does not work on sun machines
+(setq use-python t)
+
 ;; Linux-specific files (i.e. Aquamacs provides many libraries)
 (if (system-type-is-gnu)
     (progn
@@ -26,8 +29,14 @@
       (add-to-list 'load-path "~/elisp/color-theme")
       (require 'color-theme)
       (add-to-list 'load-path "~/elisp/python-mode.el-5.2.0")
+
+      (if (string-match	"sun" (emacs-version))
+	  (setq use-ipython nil)
+	)
       )
   )
+
+
 
 (require 'bindings)
 (require 'appearance)
@@ -43,9 +52,14 @@
 
 ; Setting up ipython as preferred Python shell
 ; Note Aquamacs uses python-mode>
-(setq ipython-command "ipython")
-(require 'ipython)
-(setq py-python-command-args '("-pylab" "-colors" "Linux"))
+;(if (use-ipython)
+;    (progn
+(when (eq use-python 't)
+      (setq ipython-command "ipython")
+      (require 'ipython)
+      (setq py-python-command-args '("-pylab" "-colors" "Linux"))
+)
+;))
 ;(setq ipython-completion-command-string 
 ;"print(';'.join(__IP.Completer.all_completions('%s')))\n")
 
@@ -88,16 +102,16 @@
 ; Note that anything-show-completion doesn't get bound to M-<tab> until an Ipython shell is launched
 ; We can manually bind it - but it won't work until IPython shell is running
 ; See usage: http://www.emacsmirror.org/package/anything-ipython.html
-(require 'anything-ipython)
-(add-hook 'python-mode-hook #'(lambda ()
-                                (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
-(add-hook 'ipython-shell-hook #'(lambda ()
-                                  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
-(message "hello")
-(when (require 'anything-show-completion nil t)
-   (use-anything-show-completion 'anything-ipython-complete
-                                 '(length initial-pattern)))
-
+(when (eq use-python 't)
+  (require 'anything-ipython)
+  (add-hook 'python-mode-hook #'(lambda ()
+				  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+  (add-hook 'ipython-shell-hook #'(lambda ()
+				    (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+  (when (require 'anything-show-completion nil t)
+    (use-anything-show-completion 'anything-ipython-complete
+				  '(length initial-pattern)))
+)
 ; Anything is very awesome
 ; http://metasandwich.com/2010/07/30/what-can-i-get-for-10-dolla-anything-el/
 ; Key-bindings
@@ -111,11 +125,12 @@
 
 ; This is the only way I could get the binding to work for the Ipython shell
 ; Use C-c <tab> since M-<tab> is taken by openbox
-(defun my-tab-fix ()
-  ;(local-set-key (kbd "<f7>") 'anything-ipython-complete))
-  (local-set-key (kbd "C-c <tab>") 'anything-ipython-complete))
-(add-hook 'python-mode-hook          'my-tab-fix)
-(add-hook 'py-shell-hook         'my-tab-fix)
+(when (eq use-python 't)
+  (defun my-tab-fix ()
+    (local-set-key (kbd "C-c <tab>") 'anything-ipython-complete))
+  (add-hook 'python-mode-hook          'my-tab-fix)
+  (add-hook 'py-shell-hook         'my-tab-fix)
+)
 
 (defun annotate-pdb ()
   (interactive)
