@@ -1,2 +1,19 @@
 #!/bin/bash
+
 echo "Darwin"
+
+# Enable colorized output on OS X
+alias ls='ls -G'
+alias la='ls -AG'
+alias ll='ls -lAG'
+
+# Aquamacs
+function am
+ {
+     # Create the files as needed -- not as good as raw emacs, but acceptable
+     for f in "$@"
+     do
+ 	test -e $f || touch $f
+     done
+     open -a /Applications/Aquamacs.app "$@"
+ }
