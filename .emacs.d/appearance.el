@@ -6,9 +6,9 @@
 (if window-system
 (progn
   (color-theme-initialize)
-  ;(load-file (concat dotfiles-dir "/vendor" "/twilight-emacs/color-theme-twilight.el"))
-  ;(color-theme-twilight)
-  (load-file (concat dotfiles-dir "/vendor" "/birds-of-paradise-plus/birds-of-paradise-plus-theme.el"))
+  (load-file (concat dotfiles-dir "/vendor" "/twilight-emacs/color-theme-twilight.el"))
+  (color-theme-twilight)
+  ;(load-file (concat dotfiles-dir "/vendor" "/birds-of-paradise-plus/birds-of-paradise-plus-theme.el"))
 ))
 
 (provide 'appearance)

@@ -28,3 +28,4 @@ export LIBRARY_PATH=/opt/local/lib:${LIBRARY_PATH}
 #import cudamat in python must be able to find .so files
 export LD_LIBRARY_PATH=$HOME/python/cudamat:${LD_LIBRARY_PATH}
 
+export PYTHONPATH=${HOME}/src/scikit-learn:${PYTHONPATH}

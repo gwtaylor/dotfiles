@@ -40,6 +40,7 @@
 
 (require 'uniquify) ; gives sane buffer names when multiple files open with same name
 (setq uniquify-buffer-name-style 'forward)
+(require 'ffap)
 
 ; Use older version of python-mode
 ; New version >= 6.0 doesn't seem to work with ipython.el
