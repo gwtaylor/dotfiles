@@ -17,3 +17,5 @@ Could break up into defuns-early,defuns-late
 -It's ugly that there's system conditionals at the beginning of init and at the end (i.e. in their own files)
 It would be nice to keep it totally separate in system-specific files, but some statements that are common to all platforms (like color-theme-initialize) require certain paths to be set before calling them
 -The conditionals for loading darwin.el and linux.el are of a different form; mainly because system-type could be "gnu/linux" and I don't want to deal with the slash in the name
+-Loading on the sun machines is crazy slow. Maybe I should be running totally bare bones there.
+-There's lots of interesting stuff (useful keybindings, etc.) in the emacs starter kit that could be moved in here

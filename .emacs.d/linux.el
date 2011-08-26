@@ -47,5 +47,13 @@
 ; get rid of "yes or no" and replace with "y or n":
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Highlight matching parentheses when the point is on them.
+(show-paren-mode 1)
+
 ; to edit files from within matlab
 (server-start)
+
+;; records position in a file each time it's killed
+;; on by default in Aquamacs
+(require 'saveplace)
+

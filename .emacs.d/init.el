@@ -38,6 +38,9 @@
 (require 'appearance)
 (require 'bindings)
 
+(require 'uniquify) ; gives sane buffer names when multiple files open with same name
+(setq uniquify-buffer-name-style 'forward)
+
 ; Use older version of python-mode
 ; New version >= 6.0 doesn't seem to work with ipython.el
 ; So I placed 5.2.0 it in local folder ~/Library/Application\ Support/Emacs/site-lisp
@@ -129,6 +132,9 @@
   (highlight-lines-matching-regexp "import pdb")
   (highlight-lines-matching-regexp "pdb.set_trace()"))
 (add-hook 'python-mode-hook 'annotate-pdb)
+
+(require 'python-pep8)
+(require 'python-pylint)
 
 ; Easy restoring of window configurations with C-c <left> and C-c <right>
 ; http://www.emacswiki.org/emacs/WinnerMode
