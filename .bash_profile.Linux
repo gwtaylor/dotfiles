@@ -10,7 +10,9 @@ fi
 
 #set editor
 # runs a script that tries emacsclient then falls back to starting emacs
-export EDITOR=~/bin/EDITOR
+#export EDITOR=~/bin/EDITOR
+# tries emacsclient in current terminal window; fall back to launching emacs
+export EDITOR="emacsclient -t -a emacs"
 
 #the sun machines do not understand xterm-color
 #use a local terminfo
