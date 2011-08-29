@@ -4,3 +4,6 @@
 [submodule ".emacs.d/vendor/birds-of-paradise-plus"]
 	path = .emacs.d/vendor/birds-of-paradise-plus
 	url = https://github.com/jimeh/birds-of-paradise-plus-theme.el.git
+[submodule ".emacs.d/vendor/twilight-emacs"]
+	path = .emacs.d/vendor/twilight-emacs
+	url = git@github.com:gwtaylor/twilight-emacs.git
