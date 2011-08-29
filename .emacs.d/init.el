@@ -146,6 +146,9 @@
 ;;display the current time
 (display-time)
 
+;; Don't prompt when we open a version-controlled symlink
+(setq vc-follow-symlinks t)
+
 ;; This configuration is shared between OSX and Linux machines
 ;; Test system type
 ;; http://sigquit.wordpress.com/tag/dot-emacs/

@@ -1,5 +1,7 @@
 ;; Linux-specific settings
 
+(set-default-font "Inconsolata-11")
+
 ;Matlab mode stuff
 ;First, set path
 (setq load-path (cons "~/elisp/matlab-emacs" load-path))
