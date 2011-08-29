@@ -1,9 +1,6 @@
 [submodule ".emacs.d/vendor/rainbow-mode"]
 	path = .emacs.d/vendor/rainbow-mode
 	url = git://git.naquadah.org/rainbow.git
-[submodule ".emacs.d/vendor/twilight-emacs"]
-	path = .emacs.d/vendor/twilight-emacs
-	url = https://github.com/crafterm/twilight-emacs.git
 [submodule ".emacs.d/vendor/birds-of-paradise-plus"]
 	path = .emacs.d/vendor/birds-of-paradise-plus
 	url = https://github.com/jimeh/birds-of-paradise-plus-theme.el.git
