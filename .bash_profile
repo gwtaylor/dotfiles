@@ -28,3 +28,5 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  && [ -f ${DOTFILES_D
     . ${DOTFILES_DIR}/.bash_profile.Linux
 fi
 
+# Development scikits-learn
+export PYTHONPATH=${HOME}/src/scikit-learn:${PYTHONPATH}
