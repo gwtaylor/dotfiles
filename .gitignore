@@ -3,6 +3,8 @@
 *.pyc
 .ipython/db/
 .ipython/history
+.ipython/IPython_crash_report.txt
+.ipython/profile_default/history.sqlite
 .emacs.d/auto-save-list/
 .emacs.d/anything-c-adaptive-history
 elpa

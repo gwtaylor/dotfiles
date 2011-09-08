@@ -30,3 +30,6 @@ fi
 
 # Development scikits-learn
 export PYTHONPATH=${HOME}/src/scikit-learn:${PYTHONPATH}
+
+# Development joblib
+export PYTHONPATH=${HOME}/src/joblib:${PYTHONPATH}
