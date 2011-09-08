@@ -163,6 +163,10 @@ c.InteractiveShellApp.exec_lines = ["from see import see","from reimport import 
 # A file to be run
 # c.InteractiveShellApp.file_to_run = ''
 
+# Don't print a warning message about old config files
+# This is so old ipython version can still use old config
+c.InteractiveShellApp.ignore_old_config=True
+
 #------------------------------------------------------------------------------
 # TerminalInteractiveShell configuration
 #------------------------------------------------------------------------------
