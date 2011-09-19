@@ -30,9 +30,9 @@ if [ "sun4" = "$THIS_ARCH" ] && [ "rxvt" = "$TERM" ]; then
 fi
 
 #start keychain and point it to the private keys that we would like to cache
-/home/gwtaylor/bin/keychain ~/.ssh/id_rsa
-[[ -f $HOME/.keychain/$HOSTNAME-sh ]] && \
-    source $HOME/.keychain/$HOSTNAME-sh > /dev/null
+#/home/gwtaylor/bin/keychain ~/.ssh/id_rsa
+#[[ -f $HOME/.keychain/$HOSTNAME-sh ]] && \
+#    source $HOME/.keychain/$HOSTNAME-sh > /dev/null
 
 #default printer
 export PRINTER=nhp64
@@ -55,17 +55,17 @@ if [ -e /dev/nvidia0 ]; then
 fi
 
 # nice Python setup (don't do it on sun machines)
-THIS_ARCH=`arch`
-if [ "sun4" != "$THIS_ARCH" ] ; then
-. /home/gwtaylor/bin/pylab-03/bin/python_path_setup_sh
-fi
+#THIS_ARCH=`arch`
+#if [ "sun4" != "$THIS_ARCH" ] ; then
+#. /home/gwtaylor/bin/pylab-03/bin/python_path_setup_sh
+#fi
 
 #shared binaries
 #put at end of path, don't want old gs to shadow
-[ -d /home/snwiz/bin ] && export PATH=$PATH:/home/snwiz/bin
+#[ -d /home/snwiz/bin ] && export PATH=$PATH:/home/snwiz/bin
 
 # custom python binaries
-[ -d $HOME/bin/x86_64/python/bin ] && export PATH=$HOME/bin/x86_64/python/bin:${PATH}
+#[ -d $HOME/bin/x86_64/python/bin ] && export PATH=$HOME/bin/x86_64/python/bin:${PATH}
 
 unset PYTHONPATH # CIMS default has old libraries
 
