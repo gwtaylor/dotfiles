@@ -18,7 +18,7 @@
 (require 'defuns)
 
 ;; iPython does not work on sun machines
-(setq use-ipython t)
+(setq use-ipython nil)
 
 ;; Linux-specific files (i.e. Aquamacs provides many libraries)
 (if (or (system-type-is-gnu) (system-type-is-sun))
