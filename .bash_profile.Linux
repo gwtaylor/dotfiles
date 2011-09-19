@@ -55,10 +55,11 @@ if [ -e /dev/nvidia0 ]; then
 fi
 
 # nice Python setup (don't do it on sun machines)
-#THIS_ARCH=`arch`
-#if [ "sun4" != "$THIS_ARCH" ] ; then
+THIS_ARCH=`arch`
+if [ "sun4" != "$THIS_ARCH" ] ; then
 #. /home/gwtaylor/bin/pylab-03/bin/python_path_setup_sh
-#fi
+#export PATH="/home/gwtaylor/bin/x86_64/epd-7.1-2-rh5-x86_64/bin:$PATH"
+fi
 
 #shared binaries
 #put at end of path, don't want old gs to shadow
@@ -76,13 +77,16 @@ export PYTHONPATH=$HOME/python/gnumpy:$HOME/python/cudamat-gwt:${PYTHONPATH}
 export PYTHONPATH=$HOME/python/Theano:${PYTHONPATH}
 
 #custom python modules
-export PYTHONPATH=$HOME/bin/x86_64/python/lib/python2.6/site-packages:${PYTHONPATH}
+export PYTHONPATH=$HOME/bin/x86_64/python/lib/python2.7/site-packages:${PYTHONPATH}
 
 #openCV python bindings
-export PYTHONPATH=$HOME/bin/x86_64/OpenCV-2.2.0/lib/python2.6/site-packages:${PYTHONPATH}
+#export PYTHONPATH=$HOME/bin/x86_64/OpenCV-2.2.0/lib/python2.6/site-packages:${PYTHONPATH}
 
 #import cudamat in python must be able to find .so files
 export LD_LIBRARY_PATH=$HOME/python/cudamat:${LD_LIBRARY_PATH}
 
 #recent opencv
 export LD_LIBRARY_PATH=/usr/local/pkg/opencv/lib:${LD_LIBRARY_PATH}
+
+#needed for mlabwrap
+export LD_LIBRARY_PATH=/opt/pkg/matlab/R2011a/sys/os/glnxa64:${LD_LIBRARY_PATH}

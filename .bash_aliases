@@ -49,6 +49,6 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  ; then
 	fi
     fi
 
-    alias ipython="ipython -pylab"
+    alias ipython="ipython --pylab"
 
 fi
