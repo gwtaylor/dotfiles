@@ -3,6 +3,7 @@ DOTFILES_DIR=~/dotfiles
 # Some statements (like path, etc) 
 # are run before we decide on interactivity
 # On CIMS machines, rsync is in /usr/local/bin which isn't seen if we use a non-interactive shell
+# On OANDA, bidbtest has /etc/bashrc
 if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  && [ -f ${DOTFILES_DIR}/.bashrc.Linux.pre ]; then
     . ${DOTFILES_DIR}/.bashrc.Linux.pre
 fi
@@ -30,7 +31,7 @@ PS1='\h:\W \u\$ '
 
 # Change the window title of X terminals 
 case $TERM in
-	xterm*|rxvt*|Eterm)
+	xterm*|rxvt*|Eterm|eterm*)
 		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
 		;;
 	screen)
@@ -44,11 +45,25 @@ if [ `uname -s` == 'Darwin' ] && [ -f ${DOTFILES_DIR}/.bashrc.Darwin ]; then
     . ${DOTFILES_DIR}/.bashrc.Darwin
 fi
 
-if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  && [ -f ${DOTFILES_DIR}/.bashrc.Linux ]; then
-    . ${DOTFILES_DIR}/.bashrc.Linux
+# This used to be a block to run .bashrc.Linux
+# But now, just put OANDA (all linux) specific stuff here
+if [ "$TERM" != "dumb" ]; then
+    #TODO: fix dircolors
+    #test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+
+    # some more ls aliases
+    alias ll='ls -l'
+    alias la='ls -A'
+    alias l='ls -CF'
 fi
 
 # custom aliases
+# these are ok at OANDA
 if [ -f ${DOTFILES_DIR}/.bash_aliases ]; then
     . ${DOTFILES_DIR}/.bash_aliases
 fi
