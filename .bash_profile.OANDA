@@ -12,7 +12,12 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Now just issue OANDA-specific cases here
 
 # tries emacsclient in current terminal window; fall back to launching emacs
-export EDITOR="emacsclient -t -a emacs"
+# On CentOS machine (x86_64) I only have emacs 21 which does not take -t option
+if [ "x86_64" = "$THIS_ARCH" ]; then
+    export EDITOR="emacsclient -a emacs"
+else
+    export EDITOR="emacsclient -t -a emacs"
+fi
 
 
 #start keychain and point it to the private keys that we would like to cache
