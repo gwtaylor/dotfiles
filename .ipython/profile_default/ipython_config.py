@@ -112,7 +112,7 @@ c = get_config()
 # c.TerminalIPythonApp.quick = False
 
 # A list of dotted module names of IPython extensions to load.
-c.TerminalIPythonApp.extensions = ['kernmagic']
+# c.TerminalIPythonApp.extensions = ['kernmagic']
 
 # Whether to install the default config files into the profile dir. If a new
 # profile is being created, and IPython contains config files for that profile,
@@ -159,6 +159,11 @@ c.InteractiveShellApp.exec_lines = ["from see import see","from reimport import 
 
 # List of files to run at IPython startup.
 # c.InteractiveShellApp.exec_files = []
+# Make Ipython virtualenv aware:
+# http://blog.ufsoft.org/2009/1/29/ipython-and-virtualenv
+import os
+#print os.path.expanduser('~/.ipython/virtualenv.py')
+c.InteractiveShellApp.exec_files = [os.path.expanduser('~/.ipython/virtualenv.py')]
 
 # A file to be run
 # c.InteractiveShellApp.file_to_run = ''
