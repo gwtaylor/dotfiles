@@ -7,4 +7,6 @@
 .ipython/profile_default/history.sqlite
 .emacs.d/auto-save-list/
 .emacs.d/anything-c-adaptive-history
-elpa
+elpa.ipython/profile_default/db
+.ipython/profile_default/db
+.emacs.d/elpa/
