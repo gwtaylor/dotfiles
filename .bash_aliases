@@ -25,13 +25,7 @@ alias sshhpc="ssh gwt2@hpc.es.its.nyu.edu"
 #tunnel for matlab license
 alias matlabtunnel='ssh -L 1049:hilbert.acs.its.nyu.edu:1049 -L 27000:hilbert.acs.its.nyu.edu:27000 access.cims.nyu.edu'
 
-
 # Platform-specific aliases
-if [ `uname -s` == 'Darwin' ] ; then
-
-    alias ipython='ipython-2.7 -pylab'
-
-fi
 
 if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  ; then
 
@@ -49,6 +43,8 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  ; then
 	fi
     fi
 
-    alias ipython="ipython -pylab"
+
 
 fi
+
+alias ipython="ipython --pylab"
