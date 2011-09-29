@@ -56,7 +56,6 @@
 (when (eq use-ipython 't)
       (setq ipython-command "ipython")
       (require 'ipython)
-      ;;(setq py-python-command-args '("-pylab" "-colors" "Linux"))
       (setq py-python-command-args '("--pylab" "--colors=Linux"))
 )
 ;(setq ipython-completion-command-string 
@@ -137,6 +136,10 @@
 
 (require 'python-pep8)
 (require 'python-pylint)
+
+;; For some reason, fill-paragraph seems to ignore py-fill-paragraph (through fill-paragraph-function)
+;; So set it manually
+(define-key py-mode-map [(meta q)] 'py-fill-paragraph)
 
 ; Easy restoring of window configurations with C-c <left> and C-c <right>
 ; http://www.emacswiki.org/emacs/WinnerMode

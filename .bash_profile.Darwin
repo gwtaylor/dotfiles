@@ -6,6 +6,17 @@ export EDITOR="emacs"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
+# Setting PATH for EPD-7.1-2
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
+export PATH
+
+# virtualenv
+source ~/virtualenvs/default_x86_64/bin/activate
+
+MKL_NUM_THREADS=1
+export MKL_NUM_THREADS
+
 #for CUDA
 export PATH=/usr/local/cuda/bin:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
