@@ -49,3 +49,4 @@ fi
 alias ipython="ipython --pylab"
 
 
+alias so='ssh gtaylor@gtaylor-pc'
