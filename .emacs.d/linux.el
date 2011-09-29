@@ -59,3 +59,15 @@
 ;; on by default in Aquamacs
 (require 'saveplace)
 
+;; Quick fix for wacky terminal colours (e.g. in Ipython)
+;; This was needed at OANDA but not elsewhere
+;; From https://github.com/rocky/rbx-trepanning/wiki/Terminal-Colors
+;; Note one can show colours with: list-colors-display
+;; This let me pick "deep sky blue" instead of "blue"
+(ansi-color-for-comint-mode-on)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom. ...
+ '(ansi-color-for-comint-mode-on t)
+ '(ansi-color-names-vector ["black" "red" "DarkOliveGreen4" "CadetBlue" "deep sky blue" "Purple" "DarkGoldenrod" "ivory4"])
+ '(ansi-term-color-vector [unspecified "black" "red" "DarkOliveGreen4" "CadetBlue" "deep sky blue" "Purple" "DarkGoldenrod" "ivory4"])
+)

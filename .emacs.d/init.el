@@ -18,7 +18,7 @@
 (require 'defuns)
 
 ;; iPython does not work on sun machines
-(setq use-ipython nil)
+(setq use-ipython t)
 
 ;; Linux-specific files (i.e. Aquamacs provides many libraries)
 (if (or (system-type-is-gnu) (system-type-is-sun))
@@ -99,16 +99,16 @@
 ; Note that anything-show-completion doesn't get bound to M-<tab> until an Ipython shell is launched
 ; We can manually bind it - but it won't work until IPython shell is running
 ; See usage: http://www.emacsmirror.org/package/anything-ipython.html
-(when (eq use-ipython 't)
-  (require 'anything-ipython)
-  (add-hook 'python-mode-hook #'(lambda ()
-				  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
-  (add-hook 'ipython-shell-hook #'(lambda ()
-				    (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
-  (when (require 'anything-show-completion nil t)
-    (use-anything-show-completion 'anything-ipython-complete
-				  '(length initial-pattern)))
-)
+;; (when (eq use-ipython 't)
+;;   (require 'anything-ipython)
+;;   (add-hook 'python-mode-hook #'(lambda ()
+;; 				  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;;   (add-hook 'ipython-shell-hook #'(lambda ()
+;; 				    (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;;   (when (require 'anything-show-completion nil t)
+;;     (use-anything-show-completion 'anything-ipython-complete
+;; 				  '(length initial-pattern)))
+;; )
 ; Anything is very awesome
 ; http://metasandwich.com/2010/07/30/what-can-i-get-for-10-dolla-anything-el/
 ; Key-bindings
