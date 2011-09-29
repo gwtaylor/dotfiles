@@ -43,8 +43,9 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  ; then
 	fi
     fi
 
-
-
 fi
 
+# All architectures using new ipython
 alias ipython="ipython --pylab"
+
+
