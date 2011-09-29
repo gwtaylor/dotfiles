@@ -25,3 +25,8 @@
 ;http://stackoverflow.com/questions/3750332/how-do-i-force-a-binding-in-emacs
 (cua-mode -1)
 
+; Problem with TRAMP mode
+; Control Path too long error
+; TMPDIR variable is really large
+; http://lists.macosforge.org/pipermail/macports-tickets/2011-June/084295.html
+(setenv "TMPDIR" "/tmp")
