@@ -36,11 +36,18 @@ export PYTHONPATH=${HOME}/src/${THIS_ARCH}/scikit-learn:${PYTHONPATH}
 # Development joblib
 export PYTHONPATH=${HOME}/src/${THIS_ARCH}/joblib:${PYTHONPATH}
 
+# elastic-custer
+export PATH=$HOME/src/${THIS_ARCH}/elastic-mapreduce:$PATH
+export PATH=$HOME/src/${THIS_ARCH}/s3cmd-1.0.1:$PATH
+
 # ARCH-specific binaries
 export PATH=$HOME/bin/${THIS_ARCH}:$PATH
 
 # EPD
-export PATH=$HOME/src/${THIS_ARCH}/epd-7.1-2-rh5-x86_64/bin:$PATH
-
+if [ "x86_64" = "$THIS_ARCH" ]; then
+    export PATH=$HOME/src/${THIS_ARCH}/epd-7.1-2-rh5-x86_64/bin:$PATH
+else
+    export PATH=$HOME/src/${THIS_ARCH}/epd-7.1-2-rh5-x86/bin:$PATH
+fi
 # Default python virtual environment
 source ~/virtualenvs/default_${THIS_ARCH}/bin/activate
