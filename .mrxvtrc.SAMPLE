@@ -1,0 +1,125 @@
+Mrxvt.geometry:		    120x31+0+122
+Mrxvt.transparent:       true 
+Mrxvt.shading:           80
+Mrxvt.transparentMenubar:  true
+Mrxvt.transparentTabbar: true 
+
+
+#
+# -----------------------------	TAB-BAR OPTIONS ------------------------------ #
+#
+
+Mrxvt.autohideTabbar:		False
+#Mrxvt.minVisibleTabs:		5
+Mrxvt.maxTabWidth:		17
+Mrxvt.syncTabTitle:		True
+Mrxvt.highlightTabOnBell:	True
+Mrxvt.itabBackground:		#101010
+Mrxvt.tabBackground:		#000000
+Mrxvt.itabForeground:		#909090
+Mrxvt.tabForeground:		#9a9a9a
+Mrxvt.bottomTabbar:		True
+#
+# ---------------------- SCROLLING / SCROLLBAR OPTIONS ----------------------- #
+#
+
+Mrxvt.scrollbarRight:		true
+Mrxvt.scrollbarStyle:		rxvt
+Mrxvt.saveLines:		1000
+Mrxvt.scrollTtyOutputInhibit:	true
+Mrxvt.scrollTtyKeypress:	true
+Mrxvt.scrollColor:		#808080
+Mrxvt.troughColor:		#202020
+
+
+#
+# ---------------------------------- FONTS ----------------------------------- #
+#
+#Mrxvt.xft:			    1
+#Mrxvt.xftFont:			Bitstream Vera Sans Mono
+#Mrxvt.xftSize:			10
+#Mrxvt.xftAntialias:		0
+
+#Mrxvt.xftPFont:			Bitstream Vera Sans
+#Mrxvt.xftPSize:			8
+
+#
+# ---------------------------------- CURSOR ---------------------------------- #
+#
+Mrxvt.cursorBlink:		true
+Mrxvt.cursorBlinkInterval:	800
+Mrxvt.cursorColor:		#00ff00
+Mrxvt.cursorColor2:		#000000
+
+#
+# ---------------------------------- COLORS ---------------------------------- #
+#
+
+# Setup colors for a black background.
+Mrxvt.background:		#000000
+Mrxvt.foreground:		#9a9a9a
+
+Mrxvt.tintColor:        #000000
+
+# This makes reading man pages a little easier.
+Mrxvt.colorBD:			#00afaf
+Mrxvt.colorUL:			#00af00
+
+
+#
+# ------------------------------- MISC OPTIONS ------------------------------- #
+#
+
+# Border to leave around terminal text
+Mrxvt.internalBorder:		2
+
+# Make double click select whole URL's
+Mrxvt.cutChars:			:=/~#@?%&_-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz
+
+# Blank the mouse pointer on keystrokes or after 10 seconds of inactivity.
+Mrxvt.pointerBlank:		True
+Mrxvt.pointerBlankDelay:	3
+
+# Don't close the tab if the secondary screen is displayed (e.g. when running
+# vim).
+Mrxvt.protectSecondary:		True
+
+# Run as a login shell.
+# Mrxvt.loginShell:		True
+
+# Enable session management
+Mrxvt.sessionMgt:		true
+
+#
+# --------------------------------- PROFILES --------------------------------- #
+#
+
+Mrxvt.profile1.command:		dtach -A /tmp/dtach.roger-irsssi /usr/bin/irssi
+Mrxvt.profile1.tabTitle:	Irssi
+Mrxvt.profile1.workingDirectory:/home/roger
+
+Mrxvt.profile2.command:		dtach -A /tmp/dtach.roger-admin /bin/su
+Mrxvt.profile2.tabTitle:	"Administrator"
+
+Mrxvt.profile3.command:		dtach -A /tmp/dtach.roger-term3 /bin/bash
+Mrxvt.profile3.tabTitle:	"Terminal 3"
+
+Mrxvt.profile4.command:		dtach -A /tmp/dtach.roger-term4 /bin/bash
+Mrxvt.profile4.tabTitle:	"Terminal 4"
+
+Mrxvt.profile5.command:		dtach -A /tmp/dtach.roger-term5 /bin/bash
+Mrxvt.profile5.tabTitle:	"Terminal 5"
+
+Mrxvt.profile6.command:		dtach -A /tmp/dtach.roger-term6 /bin/bash
+Mrxvt.profile6.tabTitle:	"Terminal 6"
+
+
+#
+# ------------------------------- Default  ------------------------------- #
+#
+# Number of tabs to launch initially
+# Mrxvt is hard coded to only launch a max of 4 tabs
+default.initProfileList:	    1,2,3,4,5
+
+
+
