@@ -24,4 +24,10 @@
 (global-set-key [(meta p)]     'windmove-up) 
 (global-set-key [(meta n)]     'windmove-down)
 
+(autoload 'magit-status "magit" nil t)
+; Both of these bindings were recommended and do not seem to be bound
+; I will see what I like better
+(global-set-key "\C-ci" 'magit-status)
+(global-set-key "\C-xg" 'magit-status)
+
 (provide 'bindings)

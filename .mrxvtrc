@@ -106,7 +106,7 @@ Mrxvt.troughColor:		#202020
 # Pseudo transparency. As long as you set the background using an esetroot
 # compatible program (e.g. feh), then the following will work. It is pretty
 # resource friendly too :).
-Mrxvt.transparent:		True
+# Mrxvt.transparent:		True
 # Mrxvt.transparentScrollbar:	True
 # Mrxvt.transparentTabbar:	True
 # Mrxvt.transparentMenubar:	False
