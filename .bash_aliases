@@ -19,6 +19,9 @@ alias tunnelnyu="ssh -f -N -c blowfish gwtaylor@access1.cims.nyu.edu -L 5901:mot
 # Access
 alias sa='ssh gwtaylor@access.cims.nyu.edu'
 
+# OANDA
+alias so='ssh gtaylor@gtaylor-pc.dev.oanda.com'
+
 # HPC cluster
 alias sshhpc="ssh gwt2@hpc.es.its.nyu.edu"
 
