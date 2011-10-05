@@ -19,6 +19,9 @@ alias tunnelnyu="ssh -f -N -c blowfish gwtaylor@access1.cims.nyu.edu -L 5901:mot
 # Access
 alias sa='ssh gwtaylor@access.cims.nyu.edu'
 
+# OANDA
+alias so='ssh gtaylor@gtaylor-pc.dev.oanda.com'
+
 # HPC cluster
 alias sshhpc="ssh gwt2@hpc.es.its.nyu.edu"
 
@@ -50,3 +53,4 @@ alias ipython="ipython --pylab"
 
 # start up elastic-mapreduce
 alias ems='elastic-mapreduce --create --alive --hive-interactive --name "$(hostname) @ $(date)" --num-instances 10 --bootstrap-action s3://elasticmapreduce/bootstrap-actions/configurations/latest/memory-intensive --bootstrap-action s3://mkschema.bi.oanda.com/scripts/hive-bootstrap-action.sh --hadoop-version 0.20 --hive-versions 0.7.1 --hive-site=s3://mkschema.bi.oanda.com/conf/hive-site.xml --hive-versions 0.7.1 --slave-instance-type m1.large --master-instance-type m1.large'
+

@@ -1,0 +1,8 @@
+(add-to-list 'load-path "~/dotfiles/.emacs.d/vendor")
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(setq interpreter-mode-alist (cons '("python" . python-mode) interpreter-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+(setq ipython-command "ipython")
+(require 'ipython)
+(setq py-python-command-args '("--pylab" "--colors=Linux"))
+(provide 'init)
