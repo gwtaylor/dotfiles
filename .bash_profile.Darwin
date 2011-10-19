@@ -14,7 +14,12 @@ export PATH
 # virtualenv
 source ~/virtualenvs/default_x86_64/bin/activate
 
-MKL_NUM_THREADS=1
+# Get number of CPU cores in OSX
+# /usr/sbin/system_profiler -detailLevel full SPHardwareDataType | awk '/Total Number Of Cores/ {print $5};'
+# Get number of Processors
+# /usr/sbin/system_profiler -detailLevel full SPHardwareDataType | awk '/Number Of Processors/ {print $4};'
+# On my mac: 1 processor, 2 cores
+MKL_NUM_THREADS=2
 export MKL_NUM_THREADS
 
 #for CUDA
@@ -27,9 +32,6 @@ export PATH=/usr/texbin:${PATH}
 
 #project modules
 export PYTHONPATH=$HOME/python/SquidBall/tracker:$HOME/python/SquidBall/pantilt:${PYTHONPATH}
-
-#theano
-export PYTHONPATH=$HOME/src/Theano:${PYTHONPATH}
 
 #cudamat and gnumpy
 export PYTHONPATH=$HOME/python/gnumpy:$HOME/python/cudamat:${PYTHONPATH}

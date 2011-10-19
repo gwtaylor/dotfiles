@@ -40,7 +40,6 @@
 
 (require 'uniquify) ; gives sane buffer names when multiple files open with same name
 (setq uniquify-buffer-name-style 'forward)
-(require 'ffap)
 
 ; Use older version of python-mode
 ; New version >= 6.0 doesn't seem to work with ipython.el
@@ -118,6 +117,9 @@
 ; C-x C-f will still be bound to ido-find-file
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
+
+(require 'ffap)
+(ffap-bindings)  ; Remap C-x C-f and others
 
 ; This is the only way I could get the binding to work for the Ipython shell
 ; Use C-c <tab> since M-<tab> is taken by openbox

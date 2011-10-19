@@ -33,3 +33,7 @@ export PYTHONPATH=${HOME}/src/scikit-learn:${PYTHONPATH}
 
 # Development joblib
 export PYTHONPATH=${HOME}/src/joblib:${PYTHONPATH}
+
+# Development milk
+export PYTHONPATH=${HOME}/src/milk:${PYTHONPATH}
+export PYTHONPATH=${HOME}/src/milksets:${PYTHONPATH}
