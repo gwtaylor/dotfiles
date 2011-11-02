@@ -117,9 +117,8 @@
 ; C-x C-f will still be bound to ido-find-file
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
-
-(require 'ffap)
-(ffap-bindings)  ; Remap C-x C-f and others
+; Tell ido to use find-file at point
+(setq ido-use-filename-at-point 'guess)
 
 ; This is the only way I could get the binding to work for the Ipython shell
 ; Use C-c <tab> since M-<tab> is taken by openbox
