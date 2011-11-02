@@ -57,7 +57,7 @@
       (require 'ipython)
       (setq py-python-command-args '("--pylab" "--colors=Linux"))
 )
-;(setq ipython-completion-command-string 
+;(setq ipython-completion-command-string
 ;"print(';'.join(__IP.Completer.all_completions('%s')))\n")
 
 ;re-builder: interactive regexp builder
@@ -89,7 +89,7 @@
 ;; (add-to-list 'package-archives<br />
 ;;              '("elpa" . "http://tromey.com/elpa/"))
 (package-initialize)
- 
+
 (require 'anything-match-plugin)
 (require 'anything-config)
 (require 'anything-show-completion)
@@ -138,6 +138,10 @@
 
 (require 'python-pep8)
 (require 'python-pylint)
+
+;; pep8 hates trailing whitespace
+;; http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; For some reason, fill-paragraph seems to ignore py-fill-paragraph (through fill-paragraph-function)
 ;; So set it manually

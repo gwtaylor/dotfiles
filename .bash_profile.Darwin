@@ -30,6 +30,9 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
 #don't want to use tex in macports by default
 export PATH=/usr/texbin:${PATH}
 
+# Files common to projects
+export PYTHONPATH=${HOME}/python/common
+
 #project modules
 export PYTHONPATH=$HOME/python/SquidBall/tracker:$HOME/python/SquidBall/pantilt:${PYTHONPATH}
 
@@ -40,3 +43,9 @@ export LIBRARY_PATH=/opt/local/lib:${LIBRARY_PATH}
 
 #import cudamat in python must be able to find .so files
 export LD_LIBRARY_PATH=$HOME/python/cudamat:${LD_LIBRARY_PATH}
+
+# Amazon AWS stuff
+export PATH=/Users/gwtaylor/src/elastic-mapreduce-ruby:${PATH}
+
+# Colorize the Terminal
+export CLICOLOR=1;

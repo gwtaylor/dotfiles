@@ -55,6 +55,13 @@ fi
 # All architectures using new ipython
 alias ipy="ipython --pylab"
 
-# start up elastic-mapreduce
-alias ems='elastic-mapreduce --create --alive --hive-interactive --name "$(hostname) @ $(date)" --num-instances 10 --bootstrap-action s3://elasticmapreduce/bootstrap-actions/configurations/latest/memory-intensive --bootstrap-action s3://mkschema.bi.oanda.com/scripts/hive-bootstrap-action.sh --hadoop-version 0.20 --hive-versions 0.7.1 --hive-site=s3://mkschema.bi.oanda.com/conf/hive-site.xml --hive-versions 0.7.1 --slave-instance-type m1.large --master-instance-type m1.large'
+# # start up elastic-mapreduce
+alias emsl='elastic-mapreduce --create --alive --hive-interactive --name "$(hostname) @ $(date)" --num-instances 10 --bootstrap-action s3://elasticmapreduce/bootstrap-actions/configurations/latest/memory-intensive --bootstrap-action s3://mkschema.bi.oanda.com/scripts/hive-bootstrap-action.sh --hadoop-version 0.20 --hive-versions 0.7.1 --hive-site=s3://mkschema.bi.oanda.com/conf/hive-site.xml --hive-versions 0.7.1 --slave-instance-type m1.large --master-instance-type m1.large'
+alias ems='elastic-mapreduce --create --alive --hive-interactive --name "$(hostname) @ $(date)" --num-instances 25 --bootstrap-action s3://elasticmapreduce/bootstrap-actions/configurations/latest/memory-intensive --bootstrap-action s3://mkschema.bi.oanda.com/scripts/hive-bootstrap-action.sh --hadoop-version 0.20 --hive-versions 0.7.1 --hive-site=s3://mkschema.bi.oanda.com/conf/hive-site.xml --hive-versions 0.7.1 --slave-instance-type m1.small --master-instance-type m1.small'
+# # list active em clusters
+alias emla='elastic-mapreduce --list --active'
+# # ssh to the first cluster with status WAITING
+#alias emssh="elastic-mapreduce --ssh `elastic-mapreduce | grep WAITING | head -n 1 | awk '{print $1}'`"
 
+# start up vnc on gtaylor-pc
+alias vnco='ssh -f -c blowfish gtaylor@gtaylor-pc.dev.oanda.com "killall x11vnc; x11vnc -xkb -noxdamage"'

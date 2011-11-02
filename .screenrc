@@ -3,38 +3,23 @@ hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%
 escape ``
 defscrollback 5000
 
-# emacs keybindings for navigation in copy mode
-# See: http://snarfed.org/emacs_keybindings_in_gnu_screens_copy-scrollback_mode
-# GWT: not everything works
-markkeys ^B=Y:^F=V:h=^B:l=^F:0=^A:$=^E
-
+# http://snarfed.org/emacs_keybindings_in_gnu_screens_copy-scrollback_mode
 # C-space sets mark. markkeys does it in screen 4.0 and higher, but 3.9x
 # needs the bindkey command. (note the ^@ escape sequence for C-space.)
 markkeys ' '=^@
 # bindkey -m ^@ stuff ' '
 
-# page up and page down
-bindkey -m -k kP stuff Y
-bindkey -m -k kN stuff V
-
-# failed attempt to make C-space work in i-search too
-# bindkey -m ^@ eval "stuff \033" "stuff ^@" 
-
-# special hack for C-e, since it should go *past*
-# the last char. -m means this is for copy mode only.
-bindkey -m ^e stuff "$^f"
-
-# C-g and other keys just quit copy mode. Esc does nothing.
-markkeys \033=\015=^G=^D=h=j=k=l=H=M=L=G=g=y=c=v=a=x=b=e=B=E=w
-markkeys @=\033
-
-# control arrows move by words. (set B, e, and w to F keys so that i can
-# use them to move by words, but they themselves still quit copy mode.)
-markkeys B=[:E=]:b={:e=}:w=>
-bindkey -m ^[Od stuff {  #"[[}"
-bindkey -m ^[Oc stuff ]  #"}]^f"
-
-# M-< and M-> for start/end of buffer
-bindkey -m “^[<” stuff “g”  
-bindkey -m “^[>” stuff “G”
-
+# Emacs-friendly copy Mode
+# http://aperiodic.net/screen/interface
+markkeys j=^N:k=^P:l=^F:0=^A:$=^E:^F=^V
+bindkey -m -t ^[v    stuff ^B
+bindkey -m    ^B     stuff h
+bindkey -m -t ^[a    stuff \^
+bindkey -m -t ^[f    stuff w
+bindkey -m -t ^[b    stuff b
+bindkey -m -t ^[0^[r stuff H
+# Nothing for 'M'
+bindkey -m -t ^[-^[r stuff L
+bindkey -m -t ^[<    stuff g
+bindkey -m -t ^[>    stuff G
+bindkey -m -t ^[d    stuff " e "
