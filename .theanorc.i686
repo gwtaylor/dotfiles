@@ -1,0 +1,5 @@
+# Using EPD Python
+# Theano needs to see BLAS
+# This seems to work: http://deeplearning.net/software/theano/install.html#install
+[blas]
+ldflags = -lmkl_intel -lmkl_intel_thread -lmkl_core

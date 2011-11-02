@@ -2,7 +2,11 @@
 # Aliases
 
 # Quick, no-windowing emacs
-alias em="emacs -nw"
+#alias em="emacs -nw"
+# Set monochrome term since my color-theme doesn't work over ssh
+#alias em="TERM=xterm-mono emacsclient -t -a emacs"
+# Solarized actually does work over SSH
+alias em="emacsclient -t -a emacs"
 
 #for killing apps
 function psapp() {
@@ -49,7 +53,7 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  ; then
 fi
 
 # All architectures using new ipython
-alias ipython="ipython --pylab"
+alias ipy="ipython --pylab"
 
 # # start up elastic-mapreduce
 alias emsl='elastic-mapreduce --create --alive --hive-interactive --name "$(hostname) @ $(date)" --num-instances 10 --bootstrap-action s3://elasticmapreduce/bootstrap-actions/configurations/latest/memory-intensive --bootstrap-action s3://mkschema.bi.oanda.com/scripts/hive-bootstrap-action.sh --hadoop-version 0.20 --hive-versions 0.7.1 --hive-site=s3://mkschema.bi.oanda.com/conf/hive-site.xml --hive-versions 0.7.1 --slave-instance-type m1.large --master-instance-type m1.large'

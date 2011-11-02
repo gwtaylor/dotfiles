@@ -16,12 +16,18 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # tries emacsclient in current terminal window; fall back to launching emacs
 export EDITOR="emacsclient -t -a emacs"
 
-#start keychain and point it to the private keys that we would like to cache
-#but not on i686 machines (Gnome takes care of keys)
+# start keychain and point it to the private keys that we would like to cache
+# do this even on gtaylor-pc (Gnome keyring does not work for remote sessions)
+#if [ "x86_64" = "$THIS_ARCH" ]; then
+$HOME/bin/keychain ~/.ssh/id_rsa
+[[ -f $HOME/.keychain/$HOSTNAME-sh ]] && \
+source $HOME/.keychain/$HOSTNAME-sh > /dev/null
+#fi
+
+# bidbtest doesn't have terminfo for xterm-mono
+THIS_ARCH=`arch`                                                                                                     |
 if [ "x86_64" = "$THIS_ARCH" ]; then
-    /$HOME/bin/keychain ~/.ssh/id_rsa
-    [[ -f $HOME/.keychain/$HOSTNAME-sh ]] && \
-    source $HOME/.keychain/$HOSTNAME-sh > /dev/null
+   export TERMINFO=$HOME/.terminfo
 fi
 
 unset PYTHONPATH  # just in case something weird is here
@@ -47,3 +53,12 @@ else
 fi
 # Default python virtual environment
 source ~/virtualenvs/default_${THIS_ARCH}/bin/activate
+# Fix virtualenv problem with TCL
+if [ "x86_64" = "$THIS_ARCH" ]; then
+    export TCL_LIBRARY=$HOME/src/${THIS_ARCH}/epd-7.1-2-rh5-x86_64/lib/tcl8.5
+else
+    export TCL_LIBRARY=$HOME/src/${THIS_ARCH}/epd-7.1-2-rh5-x86/lib/tcl8.5
+fi
+
+# Theano configuration (platform-specific)
+export THEANORC=${DOTFILES_DIR}/.theanorc.${THIS_ARCH}
