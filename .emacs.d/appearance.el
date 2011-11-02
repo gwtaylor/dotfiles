@@ -11,7 +11,7 @@
   ;(load-file (concat dotfiles-dir "/vendor" "/birds-of-paradise-plus/birds-of-paradise-plus-theme.el"))
 ;))
 
-;(load-file "~/src/solarized/emacs-colors-solarized/color-theme-solarized.el")
-;(color-theme-solarized-dark)
+(load-file "~/src/solarized/emacs-colors-solarized/color-theme-solarized.el")
+(color-theme-solarized-dark)
 
 (provide 'appearance)
