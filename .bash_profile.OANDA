@@ -11,6 +11,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # This used to conditionally execute .bash_profile.Linux
 # Now just issue OANDA-specific cases here
 
+# Fix dircolors
+# https://github.com/seebi/dircolors-solarized
+eval `dircolors /home/gtaylor/src/dircolors-solarized/dircolors.ansi-dark`
+
 # tries emacsclient in current terminal window; fall back to launching emacs
 export EDITOR="emacsclient -t -a emacs"
 
@@ -29,6 +33,9 @@ if [ "x86_64" = "$THIS_ARCH" ]; then
 fi
 
 unset PYTHONPATH  # just in case something weird is here
+
+# Files common to projects
+export PYTHONPATH=${HOME}/python/common
 
 # Development scikits-learn
 export PYTHONPATH=${HOME}/src/${THIS_ARCH}/scikit-learn:${PYTHONPATH}
@@ -60,3 +67,10 @@ fi
 
 # Theano configuration (platform-specific)
 export THEANORC=${DOTFILES_DIR}/.theanorc.${THIS_ARCH}
+
+# Useful for JPype
+if [ "x86_64" = "$THIS_ARCH" ]; then
+    export JAVA_HOME=/usr/lib/jvm/java-1.6.0
+else
+    export JAVA_HOME=/usr/lib/jvm/default-java
+fi
