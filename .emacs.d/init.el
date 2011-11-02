@@ -118,6 +118,7 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; fuzzy matching is a must have
 ; Tell ido to use find-file at point
+; http://www.masteringemacs.org/articles/2010/10/10/introduction-to-ido-mode/
 (setq ido-use-filename-at-point 'guess)
 
 ; This is the only way I could get the binding to work for the Ipython shell
