@@ -65,12 +65,6 @@
 (require 're-builder)
 (setq reb-re-syntax 'string)
 
-;deft notes
-;http://jblevins.org/projects/deft/
-(require 'deft)
-(setq deft-directory "~/Dropbox/notes/")
-(global-set-key [f8] 'deft)
-
 ;CUDA mode stuff
 ;Can't seem to get it to work
 ;first add path to the load path
@@ -158,6 +152,12 @@
 
 ;; Don't prompt when we open a version-controlled symlink
 (setq vc-follow-symlinks t)
+
+;;deft notes
+;;http://jblevins.org/projects/deft/
+(require 'deft)
+(setq deft-directory "~/Dropbox/notes/")
+(global-set-key [f8] 'deft)
 
 ;; This configuration is shared between OSX and Linux machines
 ;; Test system type
