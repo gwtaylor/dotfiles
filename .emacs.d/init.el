@@ -35,7 +35,9 @@
       )
   )
 
-(require 'appearance)
+(if window-system
+    (require 'appearance)
+)
 (require 'bindings)
 
 (require 'uniquify) ; gives sane buffer names when multiple files open with same name
