@@ -1,5 +1,4 @@
-;; -*- mode: Shell-script; fill-column: 75; comment-column: 50; -*-
-
+# -*- mode: Shell-script; fill-column: 75; comment-column: 50; -*-
 DOTFILES_DIR=~/dotfiles
 THIS_ARCH=`arch`
 

@@ -14,14 +14,14 @@
 ;windmove
 ;http://emacsblog.org/2008/05/01/quick-tip-easier-window-switching-in-emacs
 (if window-system
-    (windmove-default-keybindings 'meta)
+  (windmove-default-keybindings 'meta)
   (progn
     (global-set-key [(alt left)]  'windmove-left)
     (global-set-key [(alt up)]    'windmove-up)
 
     (global-set-key [(alt right)] 'windmove-right)
     (global-set-key [(alt down)]  'windmove-down)))
-(global-set-key [(meta p)]     'windmove-up) 
+(global-set-key [(meta p)]     'windmove-up)
 (global-set-key [(meta n)]     'windmove-down)
 
 (autoload 'magit-status "magit" nil t)

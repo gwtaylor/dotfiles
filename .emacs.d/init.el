@@ -35,7 +35,9 @@
       )
   )
 
-(require 'appearance)
+(if window-system
+    (require 'appearance)
+)
 (require 'bindings)
 
 (require 'uniquify) ; gives sane buffer names when multiple files open with same name
@@ -64,12 +66,6 @@
 ;recommended to set syntax to string: http://www.masteringemacs.org/articles/2011/04/12/re-builder-interactive-regexp-builder/
 (require 're-builder)
 (setq reb-re-syntax 'string)
-
-;deft notes
-;http://jblevins.org/projects/deft/
-(require 'deft)
-(setq deft-directory "~/Dropbox/notes/")
-(global-set-key [f8] 'deft)
 
 ;CUDA mode stuff
 ;Can't seem to get it to work
@@ -158,6 +154,12 @@
 
 ;; Don't prompt when we open a version-controlled symlink
 (setq vc-follow-symlinks t)
+
+;;deft notes
+;;http://jblevins.org/projects/deft/
+(require 'deft)
+(setq deft-directory "~/Dropbox/notes/")
+(global-set-key [f8] 'deft)
 
 ;; This configuration is shared between OSX and Linux machines
 ;; Test system type
