@@ -57,7 +57,10 @@
 (when (eq use-ipython 't)
       (setq ipython-command "ipython")
       (require 'ipython)
-      (setq py-python-command-args '("--pylab" "--colors=Linux"))
+      (if window-system
+	  (setq py-python-command-args '("--pylab" "--colors=Linux"))
+	  (setq py-python-command-args '("--colors=Linux"))
+      )
 )
 ;(setq ipython-completion-command-string
 ;"print(';'.join(__IP.Completer.all_completions('%s')))\n")
