@@ -38,4 +38,12 @@
 (add-hook 'python-mode-hook 'progmodes-hooks)
 ;(add-hook 'js2-mode-hook 'progmodes-hooks)
 
+; Another useful tool - virtualenv inside emacs
+; http://jesselegg.com/archives/2010/03/14/emacs-python-programmers-2-virtualenv-ipython-daemon-mode/
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/virtualenv.el"))
+(require 'virtualenv)
+(custom-set-variables
+'(virtualenv-root "~/virtualenvs")
+  )
+
 (provide 'programming)

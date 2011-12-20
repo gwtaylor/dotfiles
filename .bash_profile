@@ -54,5 +54,3 @@ if [[ -n $VEBIN ]]; then
     export WORKON_HOME=$HOME/virtualenvs
     source $VEPATH/virtualenvwrapper.sh
 fi
-
-export FUCKNET="hi"

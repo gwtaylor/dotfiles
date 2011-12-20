@@ -12,7 +12,7 @@ PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH
 
 # virtualenv
-source ~/virtualenvs/default_x86_64/bin/activate
+# source ~/virtualenvs/default_x86_64/bin/activate
 
 # Get number of CPU cores in OSX
 # /usr/sbin/system_profiler -detailLevel full SPHardwareDataType | awk '/Total Number Of Cores/ {print $5};'

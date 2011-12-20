@@ -7,3 +7,6 @@
 [submodule ".emacs.d/vendor/twilight-emacs"]
 	path = .emacs.d/vendor/twilight-emacs
 	url = git@github.com:gwtaylor/twilight-emacs.git
+[submodule ".emacs.d/vendor/virtualenv.el"]
+	path = .emacs.d/vendor/virtualenv.el
+	url = https://github.com/aculich/virtualenv.el.git
