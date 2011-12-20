@@ -36,11 +36,15 @@
 ;; Note one can show colours with: list-colors-display
 ;; I got the color codes from Solarized page:
 ;; http://ethanschoonover.com/solarized (The Values table; Items 0-8 from col 16/8)
-(ansi-color-for-comint-mode-on)
+;(ansi-color-for-comint-mode-on)
 (custom-set-variables
  '(ansi-color-for-comint-mode-on t)
- ;'(ansi-color-names-vector ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "white"])
-'(ansi-color-names-vector ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
+ '(ansi-color-names-vector ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "white"])
+ '(ansi-color-names-vector ["#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
  '(ansi-term-color-vector [unspecified "#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])
 )
 
+;; For ansi-term to also have solarized colors we need to additionally set with setq
+;; I don't know why
+(setq ansi-color-names-vector ["black" "red" "green" "yellow" "blue" "magenta" "cyan" "white"])
+(setq ansi-term-color-vector [unspecified "#073642" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#eee8d5"])

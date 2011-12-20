@@ -39,7 +39,7 @@
     (require 'appearance)
 )
 (require 'bindings)
-
+(require 'ansi-term)
 (require 'uniquify) ; gives sane buffer names when multiple files open with same name
 (setq uniquify-buffer-name-style 'forward)
 
@@ -140,7 +140,8 @@
 
 ;; pep8 hates trailing whitespace
 ;; http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(require 'programming)
 
 ;; For some reason, fill-paragraph seems to ignore py-fill-paragraph (through fill-paragraph-function)
 ;; So set it manually

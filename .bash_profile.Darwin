@@ -31,7 +31,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
 export PATH=/usr/texbin:${PATH}
 
 # Files common to projects
-export PYTHONPATH=${HOME}/python/common
+# export PYTHONPATH=${HOME}/python/common
 
 #project modules
 export PYTHONPATH=$HOME/python/SquidBall/tracker:$HOME/python/SquidBall/pantilt:${PYTHONPATH}

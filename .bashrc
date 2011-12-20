@@ -38,7 +38,6 @@ case $TERM in
 		;;
 esac
 
-
 # Platform-specific statements
 if [ `uname -s` == 'Darwin' ] && [ -f ${DOTFILES_DIR}/.bashrc.Darwin ]; then
     . ${DOTFILES_DIR}/.bashrc.Darwin
