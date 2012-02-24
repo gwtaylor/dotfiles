@@ -1,6 +1,6 @@
 DOTFILES_DIR=~/dotfiles
 
-# Some statements (like path, etc) 
+# Some statements (like path, etc)
 # are run before we decide on interactivity
 # On CIMS machines, rsync is in /usr/local/bin which isn't seen if we use a non-interactive shell
 if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  && [ -f ${DOTFILES_DIR}/.bashrc.Linux.pre ]; then
@@ -28,14 +28,14 @@ shopt -s checkwinsize
 # Custom prompt
 PS1='\h:\W \u\$ '
 
-# Change the window title of X terminals 
+# Change the window title of X terminals
 case $TERM in
-	xterm*|rxvt*|Eterm)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-		;;
-	screen)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-		;;
+        xterm*|rxvt*|Eterm)
+                PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+                ;;
+        screen)
+                PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+                ;;
 esac
 
 # Platform-specific statements
@@ -50,4 +50,8 @@ fi
 # custom aliases
 if [ -f ${DOTFILES_DIR}/.bash_aliases ]; then
     . ${DOTFILES_DIR}/.bash_aliases
+fi
+# The following three lines have been added by UDB DB2.
+if [ -f /Users/gwtaylor/sqllib/db2profile ]; then
+    . /Users/gwtaylor/sqllib/db2profile
 fi

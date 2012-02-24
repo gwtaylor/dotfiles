@@ -10,3 +10,6 @@
 [submodule ".emacs.d/vendor/virtualenv.el"]
 	path = .emacs.d/vendor/virtualenv.el
 	url = https://github.com/aculich/virtualenv.el.git
+[submodule ".emacs.d/vendor/fgallina-python"]
+	path = .emacs.d/vendor/fgallina-python
+	url = https://github.com/fgallina/python.el.git

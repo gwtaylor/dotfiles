@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export EDITOR="emacs"
+export EDITOR="emacsclient -c -a emacs"
 
 #for MacPorts
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH

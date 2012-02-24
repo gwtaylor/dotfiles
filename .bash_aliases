@@ -6,8 +6,9 @@
 # Set monochrome term since my color-theme doesn't work over ssh
 #alias em="TERM=xterm-mono emacsclient -t -a emacs"
 # Solarized actually does work over SSH
-alias em="emacsclient -t -a emacs"
-
+# this only works for Emacs > 23
+alias em="emacsclient -t -a emacs"  # open in terminal
+alias ec="emacsclient -c -a emacs"  # open in window
 #for killing apps
 function psapp() {
     ps -ax | grep -i $1 | grep -i -v  "grep.-i.$1" | awk '{print $1}'
@@ -19,6 +20,10 @@ function killapp() {
 alias kt='killapp blowfish'
 
 alias tunnelnyu="ssh -f -N -c blowfish gwtaylor@access1.cims.nyu.edu -L 5901:moth.cs.nyu.edu:5980"
+alias tunnelbmdy="ssh -f -N -c blowfish gwtaylor@bmdy.dyndns.org -L 5900:localhost:5900"
+alias tunnelbmdyoanda="ssh -f -N -c blowfish gwtaylor@bmdy.dyndns.org -L 2222:gtaylor-pc.dev.oanda.com:22"
+alias sshbmdy="ssh bmdy.dyndns.org"
+alias sot="ssh -p 2222 gtaylor@localhost"
 
 # Access
 alias sa='ssh gwtaylor@access.cims.nyu.edu'
@@ -38,16 +43,16 @@ if  [ `uname -s` == 'SunOS' ] || [ `uname -s` == 'Linux' ]  ; then
 
     # open up file with emacsclient; otherwise start new session
     alias ec="~/bin/EDITOR"
-    
+
     # start vnc server with preferred geometry
     alias myvncserver="vncserver :80 -geometry 1680x1050"
 
     # newer machines should alias ssh to ssh -Y
     THIS_ARCH=`arch`
     if [ "sun4" != "$THIS_ARCH" ]; then
-	if [ "$TERM" != "dumb" ]; then
-	    alias ssh="ssh -Y"  
-	fi
+        if [ "$TERM" != "dumb" ]; then
+            alias ssh="ssh -Y"
+        fi
     fi
 
 fi

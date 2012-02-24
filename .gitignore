@@ -4,9 +4,15 @@
 .ipython/db/
 .ipython/history
 .ipython/IPython_crash_report.txt
+.ipython/Crash_report_ipengine.txt
+.ipython/Crash_report_ipython-qtconsole.txt
 .ipython/profile_default/history.sqlite
 .ipython/profile_default/db
 .ipython/profile_default/pip-log.txt
+.ipython/profile_default/log/
+.ipython/profile_default/pid/
+.ipython/profile_default/security/
+.ipython/profile_default/startup/
 .ipython/Crash_report_ipython.txt
 .emacs.d/auto-save-list/
 .emacs.d/anything-c-adaptive-history
