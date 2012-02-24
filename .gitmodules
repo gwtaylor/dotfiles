@@ -13,3 +13,6 @@
 [submodule ".emacs.d/vendor/fgallina-python"]
 	path = .emacs.d/vendor/fgallina-python
 	url = https://github.com/fgallina/python.el.git
+[submodule ".emacs.d/vendor/fgeller-expand-region"]
+	path = .emacs.d/vendor/fgeller-expand-region
+	url = https://github.com/fgeller/expand-region.el.git
