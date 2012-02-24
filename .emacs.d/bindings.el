@@ -37,4 +37,19 @@
 (global-set-key "\C-ci" 'magit-status)
 (global-set-key "\C-xg" 'magit-status)
 
+;; real Emacs hackers don't use the arrow keys
+(global-set-key (kbd "<up>") (lambda ()
+                               (interactive)
+                               (message "Arrow key navigation is disabled. Use C-p instead.")))
+(global-set-key (kbd "<down>") (lambda ()
+                                 (interactive)
+                                 (message "Arrow key navigation is disabled. Use C-n instead.")))
+(global-set-key (kbd "<left>") (lambda ()
+                                 (interactive)
+                                 (message "Arrow key navigation is disabled. Use C-b instead.")))
+(global-set-key (kbd "<right>") (lambda ()
+                                  (interactive)
+                                  (message "Arrow key navigation is disabled. Use C-f instead.")))
+
+
 (provide 'bindings)
