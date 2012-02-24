@@ -29,9 +29,9 @@
       (add-to-list 'load-path "~/elisp/python-mode.el-5.2.0")
 
       ;; Don't do any ipython stuff on sun machines
-      ;; Earlier, I used: (if (string-match	"sun" (emacs-version))
+      ;; Earlier, I used: (if (string-match     "sun" (emacs-version))
       (when (system-type-is-sun)
-	(setq use-ipython nil))
+        (setq use-ipython nil))
       )
   )
 
@@ -43,27 +43,25 @@
 (require 'uniquify) ; gives sane buffer names when multiple files open with same name
 (setq uniquify-buffer-name-style 'forward)
 
-; Use older version of python-mode
-; New version >= 6.0 doesn't seem to work with ipython.el
-; So I placed 5.2.0 it in local folder ~/Library/Application\ Support/Emacs/site-lisp
-; This is the last version that seems to work
-;(setq load-path (cons "~/elisp/python-mode.el-5.2.0" load-path))
-(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
-(setq interpreter-mode-alist (cons '("python" . python-mode) interpreter-mode-alist))
-(autoload 'python-mode "python-mode" "Python editing mode." t)
+; Newer python-mode finally working with ipython.el
+; See discussion here:
+; https://github.com/ipython/ipython/issues/853
+; and here:
+; https://github.com/ipython/ipython/issues/922
+; Currently using ipython.el from: https://github.com/andreas-roehler/ipython
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/python-mode.el-6.0.3"))
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(setq ipython-command "ipython")
+(setq py-python-command "ipython")
 
-; Setting up ipython as preferred Python shell
-; Note Aquamacs uses python-mode>
 (when (eq use-ipython 't)
-      (setq ipython-command "ipython")
-      (require 'ipython)
-      (if window-system
-	  (setq py-python-command-args '("--pylab" "--colors=Linux"))
-	  (setq py-python-command-args '("--colors=Linux"))
-      )
-)
-;(setq ipython-completion-command-string
-;"print(';'.join(__IP.Completer.all_completions('%s')))\n")
+  (require 'ipython)
+  (if window-system
+      (setq py-python-command-args '("--pylab" "--colors=Linux"))
+    (setq py-python-command-args '("--colors=Linux"))
+    )
+  )
 
 ;re-builder: interactive regexp builder
 ;recommended to set syntax to string: http://www.masteringemacs.org/articles/2011/04/12/re-builder-interactive-regexp-builder/
@@ -99,12 +97,12 @@
 ;; (when (eq use-ipython 't)
 ;;   (require 'anything-ipython)
 ;;   (add-hook 'python-mode-hook #'(lambda ()
-;; 				  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;;                                (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
 ;;   (add-hook 'ipython-shell-hook #'(lambda ()
-;; 				    (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;;                                  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
 ;;   (when (require 'anything-show-completion nil t)
 ;;     (use-anything-show-completion 'anything-ipython-complete
-;; 				  '(length initial-pattern)))
+;;                                '(length initial-pattern)))
 ;; )
 ; Anything is very awesome
 ; http://metasandwich.com/2010/07/30/what-can-i-get-for-10-dolla-anything-el/
@@ -179,5 +177,12 @@
       (load "linux.el")
       )
   )
+
+;; this is currently a pull request, should get merged back into magnars/expand-region
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/fgeller-expand-region"))
+(require 'expand-region)
+(require 'python-mode-expansions)
+(global-set-key (kbd "C-@") 'er/expand-region)
+
 
 (provide 'init)
