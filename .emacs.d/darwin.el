@@ -5,9 +5,11 @@
 ;Both of these work
 ;(setq default-frame-alist '((font . "-apple-inconsolata-medium-r-normal--13-160-72-72-m-160-iso10646-1")))
 ;(set-default-font "Inconsolata-dz-18")
+(setq default-frame-alist '((font ."Inconsolata-dz-12")))
 
-(setq default-frame-alist '((font ."Inconsolata-dz-14")))
-
+; Aquamacs, by default, uses a variable-width font for all text modes
+; I disable this feature to get monospaced everywhere
+(aquamacs-autoface-mode -1)
 ; Aquamacs recognizes when Skim is running and uses it as the pdf viewer
 
 ; Running Aquamacs in -nw mode (within terminal) delete key doesn't seem to work unless I do this
