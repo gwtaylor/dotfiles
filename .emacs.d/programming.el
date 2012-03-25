@@ -40,7 +40,7 @@
 
 ; Another useful tool - virtualenv inside emacs
 ; http://jesselegg.com/archives/2010/03/14/emacs-python-programmers-2-virtualenv-ipython-daemon-mode/
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/virtualenv.el"))
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/aculich-virtualenv"))
 (require 'virtualenv)
 (custom-set-variables
 '(virtualenv-root "~/virtualenvs")

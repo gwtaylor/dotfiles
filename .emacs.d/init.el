@@ -29,10 +29,14 @@
       (add-to-list 'load-path "~/elisp/python-mode.el-5.2.0")
 
       ;; Don't do any ipython stuff on sun machines
-      ;; Earlier, I used: (if (string-match	"sun" (emacs-version))
+      ;; Earlier, I used: (if (string-match     "sun" (emacs-version))
       (when (system-type-is-sun)
-	(setq use-ipython nil))
+        (setq use-ipython nil))
       )
+  )
+
+(if (system-type-is-darwin)
+    (add-to-list 'load-path "~/src/python-mode-5.2.0")
   )
 
 (if window-system
@@ -58,8 +62,8 @@
       (setq ipython-command "ipython")
       (require 'ipython)
       (if window-system
-	  (setq py-python-command-args '("--pylab" "--colors=Linux"))
-	  (setq py-python-command-args '("--colors=Linux"))
+          (setq py-python-command-args '("--pylab" "--colors=Linux"))
+          (setq py-python-command-args '("--colors=Linux"))
       )
 )
 ;(setq ipython-completion-command-string
@@ -99,12 +103,12 @@
 ;; (when (eq use-ipython 't)
 ;;   (require 'anything-ipython)
 ;;   (add-hook 'python-mode-hook #'(lambda ()
-;; 				  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;;                                (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
 ;;   (add-hook 'ipython-shell-hook #'(lambda ()
-;; 				    (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
+;;                                  (define-key py-mode-map (kbd "M-<tab>") 'anything-ipython-complete)))
 ;;   (when (require 'anything-show-completion nil t)
 ;;     (use-anything-show-completion 'anything-ipython-complete
-;; 				  '(length initial-pattern)))
+;;                                '(length initial-pattern)))
 ;; )
 ; Anything is very awesome
 ; http://metasandwich.com/2010/07/30/what-can-i-get-for-10-dolla-anything-el/
