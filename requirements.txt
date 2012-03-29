@@ -1,5 +1,10 @@
 see
-reimport
-ipdb
-MySQL-python
+#MySQL-python (tricky to build)
 mako
+starcluster
+line-profiler
+ipdb
+pylint
+pymongo
+py4j
+#pep8 (ships with EPD)
