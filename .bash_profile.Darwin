@@ -6,7 +6,7 @@ export EDITOR="emacsclient -c -a emacs"
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
-# Setting PATH for EPD-7.1-2
+# Setting PATH for EPD-7.2-2
 # The orginal version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/EPD64.framework/Versions/Current/bin:${PATH}"
 export PATH
