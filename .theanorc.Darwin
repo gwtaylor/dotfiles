@@ -5,6 +5,7 @@
 # But there is trouble getting OSX to see EPD libraries
 # For now, fall back on numpy 
 # This, empirically, seems faster than the default "-lblas"
+# See notes in ~/Dropbox/notes/theano-blas.txt
 [blas]
-#ldflags = -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core
-ldflags = 
+#ldflags = -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core  # disabled on purpose
+ldflags =
