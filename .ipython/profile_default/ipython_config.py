@@ -47,7 +47,7 @@ c = get_config()
 # c.TerminalIPythonApp.quick = False
 
 # A list of dotted module names of IPython extensions to load.
-c.TerminalIPythonApp.extensions = ['kernmagic', 'line_profiler_ext']
+c.TerminalIPythonApp.extensions = ['kernmagic', 'line_profiler_ext', 'autoreload']
 
 # Whether to install the default config files into the profile dir. If a new
 # profile is being created, and IPython contains config files for that profile,
@@ -84,7 +84,7 @@ c.TerminalIPythonApp.extensions = ['kernmagic', 'line_profiler_ext']
 
 # lines of code to run at IPython startup.
 # c.InteractiveShellApp.exec_lines = []
-c.InteractiveShellApp.exec_lines = ["from see import see","from reimport import reimport, modified"]
+c.InteractiveShellApp.exec_lines = ["from see import see",]
 
 # A list of dotted module names of IPython extensions to load.
 # c.InteractiveShellApp.extensions = []
