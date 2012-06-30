@@ -1,6 +1,6 @@
 see
 #MySQL-python (tricky to build)
-mako
+#mako
 starcluster
 line-profiler
 ipdb
