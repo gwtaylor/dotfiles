@@ -146,6 +146,7 @@
 ;; http://pedrokroger.com/2010/07/configuring-emacs-as-a-python-ide-2/
 ; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (require 'programming)
+(require 'texconf)
 
 ;; For some reason, fill-paragraph seems to ignore py-fill-paragraph (through fill-paragraph-function)
 ;; So set it manually
@@ -183,5 +184,11 @@
       (load "linux.el")
       )
   )
+
+; wordcount mode (installed through ELPA)
+; https://github.com/bnbeckwith/wc-mode
+(require 'wc-mode)
+;; Suggested setting
+(global-set-key "\C-cw" 'wc-mode)
 
 (provide 'init)

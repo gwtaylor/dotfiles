@@ -1,11 +1,8 @@
 # Using EPD Python
 # Theano needs to see BLAS
 # Linux install based on: http://deeplearning.net/software/theano/install.html#install
-# works well for Linux machines
-# But there is trouble getting OSX to see EPD libraries
-# For now, fall back on numpy 
-# This, empirically, seems faster than the default "-lblas"
 # See notes in ~/Dropbox/notes/theano-blas.txt
 [blas]
+#ldflags = -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_mc -lmkl_mc3 -lpthread
 #ldflags = -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core  # disabled on purpose
-ldflags =
+#ldflags =

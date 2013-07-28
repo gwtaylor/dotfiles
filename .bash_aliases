@@ -20,7 +20,9 @@ function killapp() {
 alias kt='killapp blowfish'
 
 alias tunnelnyu="ssh -f -N -c blowfish gwtaylor@access1.cims.nyu.edu -L 5901:moth.cs.nyu.edu:5980"
+alias tunnelut="ssh -f -N -c blowfish gwtaylor@cluster33.cs.toronto.edu -L 5904:localhost:5904"
 alias tunnelbmdy="ssh -f -N -c blowfish gwtaylor@bmdy.dyndns.org -L 5900:localhost:5900"
+alias tunnelbug2="ssh -f -N -c blowfish gwtaylor@bug2 -L 5901:localhost:5901"
 alias tunnelbmdyoanda="ssh -f -N -c blowfish gwtaylor@bmdy.dyndns.org -L 2222:gtaylor-pc.dev.oanda.com:22"
 alias sshbmdy="ssh bmdy.dyndns.org"
 alias sot="ssh -p 2222 gtaylor@localhost"
@@ -29,13 +31,16 @@ alias sot="ssh -p 2222 gtaylor@localhost"
 alias sa='ssh gwtaylor@access.cims.nyu.edu'
 
 # OANDA
-alias so='ssh gtaylor@gtaylor-pc.dev.oanda.com'
+#alias so='ssh gtaylor@gtaylor-pc.dev.oanda.com'
+
+# OSCAR
+alias so='ssh oscar.mathstat.uoguelph.ca'
 
 # HPC cluster
 alias sshhpc="ssh gwt2@hpc.es.its.nyu.edu"
 
 #tunnel for matlab license
-alias matlabtunnel='ssh -L 1049:hilbert.acs.its.nyu.edu:1049 -L 27000:hilbert.acs.its.nyu.edu:27000 access.cims.nyu.edu'
+alias matlabtunnel='ssh -f -N -c blowfish -L 1049:lm1.es.its.nyu.edu:1049 -L 27000:lm1.es.its.nyu.edu:27000 access.cims.nyu.edu'
 
 # Platform-specific aliases
 
@@ -70,3 +75,23 @@ alias emla='elastic-mapreduce --list --active'
 
 # start up vnc on gtaylor-pc
 alias vnco='ssh -f -c blowfish gtaylor@gtaylor-pc.dev.oanda.com "killall x11vnc; x11vnc -xkb -noxdamage"'
+
+# git aliases from git immersion tutorial
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias got='git '
+alias get='git '
+
+# Teaching
+# Back up course
+#alias bup="rsync -avzPh --exclude='hibbeler' $HOME/Documents/Teaching/ENGG1210/ /Volumes/gwtaylor/Teaching/ENGG1210/"
+#BUP_COURSE=ENGG4450
+#alias bup="rsync -avzPh --exclude-from=$HOME/Documents/Teaching/${BUP_COURSE}/nobackup.txt $HOME/Documents/Teaching/${BUP_COURSE}/ /Volumes/gwtaylor/Teaching/${BUP_COURSE}
+alias bup="rsync -avzPh --exclude='video' --exclude='geoff_slides' $HOME/Documents/Teaching/ENGG6500/ /Volumes/gwtaylor/Teaching/ENGG6500/"

@@ -2,9 +2,18 @@ see
 #MySQL-python (tricky to build)
 #mako
 starcluster
-line-profiler
+#line-profiler
 ipdb
 pylint
 pymongo
 py4j
-#pep8 (ships with EPD)
+#pep8 (ships with EPD, Anaconda)
+protobuf
+times
+# requirements for statsmodels
+patsy
+joblib
+# suggested requirements for pandas
+bottleneck
+#six (ships with Anaconda)
+numdifftools
