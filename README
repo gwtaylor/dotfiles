@@ -1,1 +1,13 @@
 My dotfiles repo.
+
+To make it work on a new Linux install:
+  * This repository contains submodules, need to do: git submodule init; git submodule update
+  * Copy all packages in ~/elisp from NYU to ~/elisp
+  * Clone solarized from git://github.com/altercation/solarized.git into ~/src
+  * Once you get to this point, install the following with package-list-packages (using key i to mark for install)
+     * anything
+     * anything-match-plugin
+     * anything-config
+     * anything-show-completion
+     * python-pep8
+     * python-pylint
