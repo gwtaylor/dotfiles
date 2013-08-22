@@ -51,3 +51,6 @@ if [[ -n $VEBIN ]]; then
     export WORKON_HOME=$HOME/virtualenvs
     source $VEPATH/virtualenvwrapper.sh
 fi
+
+# skdata data location (not backed up)
+export SKDATA_ROOT=/data1/skdata
