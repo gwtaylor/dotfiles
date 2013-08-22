@@ -9,14 +9,18 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 # Setting PATH for Anaconda 1.6.1
 CONDA_PATH="/opt/anaconda"
-export PATH="${CONDA_PATH}/bin:${PATH}"
+EPD_PATH="/Library/Frameworks/EPD64.framework/Versions/7.3"
+#PYTHON_DISTRO_PATH=$EPD_PATH
+PYTHON_DISTRO_PATH=$CONDA_PATH
+
+export PATH="${PYTHON_DISTRO_PATH}/bin:${PATH}"
 # to avoid errors about not finding tcl.init
-export TCL_LIBRARY=${CONDA_PATH}/lib/tcl8.5
+export TCL_LIBRARY=${PYTHON_DISTRO_PATH}/lib/tcl8.5
 
 # In ~/.theanorc we set blas.ldflags to certain MKL libraries
 # This lets them be found but doesn't mess with the system defaults (like DYLD_LIBRARY_PATH)
 # export DYLD_FALLBACK_LIBRARY_PATH=/Library/Frameworks/EPD64.framework/Versions/Current/lib:${DYLD_FALLBACK_LIBRARY_PATH}
-export DYLD_FALLBACK_LIBRARY_PATH=${CONDA_PATH}/lib:${DYLD_FALLBACK_LIBRARY_PATH}
+export DYLD_FALLBACK_LIBRARY_PATH=${PYTHON_DISTRO_PATH}/lib:${DYLD_FALLBACK_LIBRARY_PATH}
 
 # virtualenv
 # source ~/virtualenvs/default_x86_64/bin/activate
@@ -37,6 +41,15 @@ export PATH=/usr/local/cuda/bin:$PATH
 export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
 
+# When Theano uses nvcc to compile cuda code, it needs to find libpython
+# since Anaconda doesn't show it in python-config --ldflags, it's not found by nvcc
+# This fixes the issue (later found that simply removing the /opt/local/lib
+# from LIBRARY_PATH resolved the issue)
+#export LIBRARY_PATH=${LIBRARY_PATH}:${PYTHON_DISTRO_PATH}/lib
+#removed Aug 20 after issues with Anaconda/Theano
+#export LIBRARY_PATH=/opt/local/lib:${LIBRARY_PATH}
+
+
 #don't want to use tex in macports by default
 export PATH=/usr/texbin:${PATH}
 
@@ -49,7 +62,6 @@ export PYTHONPATH=$HOME/python/SquidBall/tracker:$HOME/python/SquidBall/pantilt:
 #cudamat and gnumpy
 export PYTHONPATH=$HOME/python/gnumpy:$HOME/python/cudamat:${PYTHONPATH}
 
-export LIBRARY_PATH=/opt/local/lib:${LIBRARY_PATH}
 
 #import cudamat in python must be able to find .so files
 export LD_LIBRARY_PATH=$HOME/python/cudamat:${LD_LIBRARY_PATH}
