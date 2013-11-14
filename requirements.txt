@@ -1,7 +1,7 @@
 see
 #MySQL-python (tricky to build)
 #mako
-starcluster
+#starcluster
 #line-profiler
 ipdb
 pylint
@@ -11,9 +11,11 @@ py4j
 protobuf
 times
 # requirements for statsmodels
-patsy
+#patsy (ships with Anaconda)
 joblib
 # suggested requirements for pandas
 bottleneck
 #six (ships with Anaconda)
 numdifftools
+pulp
+nameparser
