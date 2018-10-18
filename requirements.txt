@@ -8,7 +8,7 @@ pylint
 pymongo
 py4j
 #pep8 (ships with EPD, Anaconda)
-protobuf
+#protobuf (install with enpkg)
 times
 # requirements for statsmodels
 #patsy (ships with Anaconda)
