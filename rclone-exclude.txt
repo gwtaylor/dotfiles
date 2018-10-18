@@ -1,0 +1,27 @@
+# my rclone exclude file
+.fseventsd/
+.sync-conflict-*
+.DS_Store
+.AppleDB
+.AppleDesktop
+.com.apple.timemachine.supported
+.dbfseventsd
+.DocumentRevisions-V100*/
+.PKInstallSandboxManager
+.Spotlight*/
+.TemporaryItems
+.Trash*/
+.vol
+.VolumeIcon.icns
+Desktop DB
+Desktop DF
+lost+found/
+System Volume Information
+Temporary Items
+Thumbs.db
+Corktown-Macintosh-HD/
+Corktown-nobackup/
+.apdisk
+.journal
+.journal_info_block
+Priceline.com - hotel, hotel reservation, cheap hotel, las vegas hotel, boston hotel, hotel deal, new york city hotel, hotel rooms, motel, lodging, accommodations, casino hotel, priceline.pdf
